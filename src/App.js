@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
 import Counter from "./pages/Counter";
@@ -45,6 +46,10 @@ class App extends Component {
         this.setState({appNum:this.state.appNum+1})
     };
 
+    handleClick=()=>{
+        ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+    };
+
 
 
     render() {
@@ -62,6 +67,7 @@ class App extends Component {
                 <Counter/>
                 <Age age={30}/>
                 <Name name='小米'/>
+                <button onClick={this.handleClick}>卸载</button>
             </div>
         );
     }
